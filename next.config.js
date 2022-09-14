@@ -4,6 +4,7 @@ const nextConfig = {
     swcMinify: true,
     pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
 }
+const urlPrefix = process.env.URL_PREFIX ? '/' + process.env.URL_PREFIX : ''
 const withMDX = require('@next/mdx')({
     extension: /\.mdx?$/,
     options: {
@@ -16,4 +17,8 @@ const withMDX = require('@next/mdx')({
 
 const config = withMDX(nextConfig)
 
-module.exports = config
+module.exports = {...config,
+    assetPrefix: urlPrefix,
+    basePath: urlPrefix,
+    trailingSlash: true,
+}
