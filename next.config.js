@@ -6,6 +6,9 @@ const nextConfig = {
     swcMinify: true,
     //以下追加
     pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
+    // assetPrefix: urlPrefix,
+    // basePath: urlPrefix,
+    // trailingSlash: true,
 }
 const withMDX = require('@next/mdx')({
     extension: /\.mdx?$/,
@@ -17,11 +20,4 @@ const withMDX = require('@next/mdx')({
     },
 })
 
-const config = withMDX(nextConfig)
-
-module.exports = {
-    ...config,
-    assetPrefix: urlPrefix,
-    basePath: urlPrefix,
-    trailingSlash: true,
-}
+module.exports = withMDX(nextConfig)
