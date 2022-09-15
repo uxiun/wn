@@ -20,4 +20,9 @@ const withMDX = require('@next/mdx')({
     },
 })
 
-module.exports = withMDX(nextConfig)
+module.exports = withMDX({
+    ...nextConfig,
+    assetPrefix: urlPrefix,
+    basePath: urlPrefix,
+    trailingSlash: true,
+})
