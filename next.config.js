@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const urlPrefix = process.env.URL_PREFIX ? '/' + process.env.URL_PREFIX : undefined
+// const urlPrefix = process.env.URL_PREFIX ? '/' + process.env.URL_PREFIX : undefined
 // const path = require("path");
 const nextConfig = {
     reactStrictMode: true,
@@ -7,8 +7,8 @@ const nextConfig = {
     //以下追加
     pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
     // assetPrefix: urlPrefix,
-    // basePath: urlPrefix,
-    // trailingSlash: true,
+    basePath: process.env.GITHUB_ACTIONS && "/wn",
+    trailingSlash: true,
 }
 const withMDX = require('@next/mdx')({
     extension: /\.mdx?$/,
@@ -20,9 +20,4 @@ const withMDX = require('@next/mdx')({
     },
 })
 
-module.exports = withMDX({
-    ...nextConfig,
-    assetPrefix: urlPrefix,
-    basePath: urlPrefix,
-    trailingSlash: true,
-})
+module.exports = withMDX(nextConfig)
