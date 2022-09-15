@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
+const urlPrefix = process.env.URL_PREFIX ? '/' + process.env.URL_PREFIX : ''
+const path = require("path");
 const nextConfig = {
     reactStrictMode: true,
     swcMinify: true,
@@ -8,7 +10,6 @@ const nextConfig = {
     basePath: urlPrefix,
     trailingSlash: true,
 }
-const urlPrefix = process.env.URL_PREFIX ? '/' + process.env.URL_PREFIX : ''
 const withMDX = require('@next/mdx')({
     extension: /\.mdx?$/,
     options: {
