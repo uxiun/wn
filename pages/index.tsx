@@ -4,7 +4,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
 import Shu from "./shu.mdx"
-
+const path = require("path");
 const Home: NextPage = () => {
   return (
     <div className={styles.container}>
