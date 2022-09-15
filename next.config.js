@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const urlPrefix = process.env.URL_PREFIX ? '/' + process.env.URL_PREFIX : undefined
-const path = require("path");
+// const path = require("path");
 const nextConfig = {
     reactStrictMode: true,
     swcMinify: true,
